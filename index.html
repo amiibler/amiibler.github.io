@@ -28,7 +28,8 @@
         letter-spacing: -.05rem;
         margin-bottom: 2rem;
         margin-left: -.05rem;
-        opacity: .8;
+        opacity: 1;
+        color: rgb(66, 66, 66);
     }
 
     h3 {
@@ -38,7 +39,7 @@
         letter-spacing: -.05rem;
         margin-bottom: -4rem;
         margin-left: -.05rem;
-        opacity: .5;
+        color: rgb(110, 110, 110);
     }
 
     h4 {
@@ -59,6 +60,7 @@
         opacity: .6;
         margin-bottom: 6rem;
         max-width: 150%;
+        color: #868686;
     }
 
     .p2{
@@ -78,6 +80,16 @@
         background: #A2A2A2;
         overflow: hidden;
         width: 100vw;
+    }
+
+    p, span, a, h3, h2, h4, .p2 {
+        opacity: 0;
+        animation-delay: 2s !important;
+        animation: fade-in .5s ease-in forwards;
+    }
+
+    @keyframes fade-in{
+        to {opacity: 1;}
     }
 
     div {
@@ -132,14 +144,14 @@
 
 </style>
 
-<body>
+<body onload="loadingText()">
     <div>
-        <h3><a href="mailto: kyle@bigoray.com">>kyle@bigoray.com</a><br><a href="https://www.instagram.com/amiibler">>@amiibler</a></h3>
-        <h1>Hello world.</h1>
+        <h3><a href="mailto: kyle@bigoray.com" onmouseover="animateGlitchText(this)" onfocus="animateGlitchText(this)" data-original=">kyle@bigoray.com" data-time="20"></a><br><a href="https://www.instagram.com/amiibler" onmouseover="animateGlitchText(this)" onfocus="animateGlitchText(this)" data-original=">@amiibler" data-time="20"></a></h3>
+        <h1 data-original="Hello world." data-time="150" class="loading-text"></h1>
         <h2>I<sp> </sp>am<sp> </sp>under<sp> </sp>construction.</h2>
         <p>Please check back in the future.<br>I'll be done by then.</p>
         <h4>Until next we meet:</h3>
-        <p class="p2">
+        <p class="p2 loading-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta posuere arcu, laoreet eleifend urna porttitor nec. Duis ullamcorper risus porta pulvinar laoreet. Donec sed urna ipsum. Duis consectetur viverra nisl a porta. Aliquam lobortis dictum eleifend. Suspendisse viverra purus ante, a maximus massa vulputate non. Sed accumsan non eros at posuere. Nullam rutrum nunc pharetra ligula ornare hendrerit.
 
             In mollis accumsan justo non pharetra. Duis nec diam tincidunt, porta elit quis, cursus nibh. Pellentesque ut fringilla dolor, vitae consectetur leo. Nullam tincidunt, urna commodo cursus ornare, tortor neque malesuada risus, vitae tempor arcu erat vitae urna. Vestibulum fringilla, nibh a suscipit imperdiet, erat est iaculis tortor, id suscipit dolor eros non nisl. Aenean tincidunt odio eu orci rhoncus sagittis. Ut accumsan massa vitae magna vulputate, id venenatis orci gravida. In placerat vehicula fermentum. Nulla interdum blandit pharetra. Vestibulum nunc nibh, tempor quis lectus vitae, luctus vestibulum tortor.
@@ -241,5 +253,56 @@
             Nunc pretium euismod felis vel gravida. Donec ultricies, erat sed gravida condimentum, sapien sapien viverra elit, pharetra posuere nisl metus at mauris. Curabitur at ipsum congue, tristique tortor ac, pharetra ligula. Cras eleifend rutrum lorem, eget molestie risus elementum sit amet. Phasellus vel purus non libero convallis feugiat in quis lacus. Etiam eleifend mauris ac mauris scelerisque sagittis. Fusce quis est mollis, laoreet nisl eget, lacinia libero. Aliquam a nisi eget odio euismod malesuada. 
         </p>
     </div>
+
+    <script>
+        function loadingText (){
+    
+            const displayOriginal = document.querySelectorAll('[data-original]')
+    
+            displayOriginal.forEach((element) => {
+                const originalText = element.getAttribute('data-original');
+                element.textContent = originalText;
+            });
+    
+            const loadTexts =  document.querySelectorAll('.loading-text')
+            loadTexts.forEach((element) => {
+                animateGlitchText(element);
+            });
+        }
+    
+        function animateGlitchText(element) {
+        const initialWidth = element.getAttribute ('width');
+        const time = element.getAttribute('data-time');
+        const originalText = element.dataset.original;
+        const glitchedText = generateGlitchedText(originalText);
+    
+        let currentIndex = 0;
+        const animationInterval = setInterval(() => {
+            const transitionText = originalText.substring(0, currentIndex + 1);
+            const remainingGlitchedText = generateGlitchedText(originalText.substring(currentIndex + 1));
+            element.textContent = transitionText + remainingGlitchedText;
+            currentIndex++;
+    
+            if (currentIndex >= originalText.length) {
+            clearInterval(animationInterval);
+            }
+        }, time);
+        }
+    
+        function generateGlitchedText(originalText) {
+        let glitchedText = '';
+    
+        for (let i = 0; i < originalText.length; i++) {
+            glitchedText += getRandomCharacter();
+        }
+        return glitchedText;
+        }
+    
+        function getRandomCharacter() {
+        const characters = '1234567890-!#$%^&*+-=<>?/.:ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        return characters[Math.floor(Math.random() * characters.length)];
+        }
+    </script>
+
 </body>
 </html>
