@@ -43,10 +43,10 @@
         scrollbar-width: none; /* Firefox */ 
     }
 
-    #device-size-warning {
+    /*#device-size-warning {
         display: none;
         visibility: hidden;
-    }
+    }*/
 
     #loading {
         position: fixed;
@@ -57,7 +57,7 @@
         justify-content: center;
         align-items: center;
         background: white;
-        font-family: 'Archivo';
+        font-family: 'Archivo', 'Helvetica', sans-serif;
         font-weight: 1000;
         text-transform: uppercase;
         letter-spacing: -.11em;
@@ -83,6 +83,11 @@
         animation: loading 10s linear infinite;
     }
 
+    @keyframes loading {
+        from {transform: rotate(3600deg);}
+        to {transform: rotate(360deg);}
+    }
+
     #image-zoom {
         width: calc(100vw - 4 * var(--project-title-margin));
         height: calc(100svh - 4 * var(--project-title-margin));
@@ -95,11 +100,6 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
-    }
-
-    @keyframes loading {
-        from {transform: rotate(3600deg);}
-        to {transform: rotate(360deg);}
     }
 
     #scroll-snap-container {
@@ -884,7 +884,7 @@
         }
     }
 
-    @media screen and (max-height: 580px) {
+    /*@media screen and (max-height: 580px) {
         #scroll-snap-container {
             display: none;
             visibility: collapse;
@@ -929,7 +929,7 @@
             left: calc(var(--mobile-menu-width));
             margin-left: calc(var(--margin) * .5);
         }
-    }
+    }*/
 
 </style>
 
@@ -950,7 +950,7 @@
     </filter>
     </svg>
 
-    <div id="device-size-warning">
+    <!--<div id="device-size-warning">
         <h2>Device Warning!</h2>
         <p>Your device's screen is currently too small to display this page correctly. Please rotate your device to portrait mode, or swap to a larger screen.</p>
         <div class="nametag">
@@ -965,7 +965,7 @@
                 </g>
             </svg>   
         </div>
-    </div>
+    </div>-->
 
     <div id="loading"><p>Loading...</p></div>
 
@@ -1635,6 +1635,7 @@
     <script id="imageZoom">
         const docImages = document.querySelectorAll('project img');
         const zoomContainer = document.getElementById('image-zoom');
+        const deviceWarning = document.getElementById('device-size-warning');
 
         docImages.forEach(e => {
             e.addEventListener('click', function() {
@@ -1646,6 +1647,11 @@
         zoomContainer.addEventListener('click', function() {
             zoomContainer.style.display = 'none';
         });
+
+        document.onfullscreenchange = (event) => {
+            deviceWarning.style.visibility = 'collapse';
+            console.log('fullscreen');
+        };
     </script>
 
 </body>
