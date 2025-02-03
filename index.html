@@ -590,6 +590,13 @@
             --project-title-margin: 15px;
         }
 
+        #image-zoom {
+            width: calc(100vw - 2 * var(--project-title-margin));
+            height: calc(100svh - 2 * var(--project-title-margin));
+            outline: calc(1 * var(--project-title-margin)) solid #edf1f1cc;
+            border: calc(1 * var(--project-title-margin)) solid transparent;
+        }
+
         project-container {
             width: calc(100vw - var(--mobile-menu-width));
             height: calc(100svh + 100px);
@@ -682,7 +689,7 @@
             align-items: center;
             margin: 0;
             background: var(--gray);
-            border-top: 2px var(--gray) solid;
+            border-top: 1px var(--gray) solid;
         }
 
         menu::after {
