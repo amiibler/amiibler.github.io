@@ -28,7 +28,7 @@
     
     html {
         scroll-behavior: smooth;
-        height: 100svh;
+        height: 100vh;
         overflow: hidden;
     }
     
@@ -36,7 +36,7 @@
         margin: 0 auto;
         padding: 0;
         width: 100vw;
-        height: 100svh;
+        height: 100vh;
         overflow: hidden;
         font-family: 'Inter', 'Helvetica', 'Helvetica Neue', sans-serif;
         color: var(--green);
@@ -53,7 +53,7 @@
     #loading {
         position: fixed;
         z-index: 501;
-        height: 100svh;
+        height: 100vh;
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -92,7 +92,7 @@
 
     #image-zoom {
         width: calc(100vw - 4 * var(--project-title-margin));
-        height: calc(100svh - 4 * var(--project-title-margin));
+        height: calc(100vh - 4 * var(--project-title-margin));
         outline: calc(2 * var(--project-title-margin)) solid #edf1f1cc;
         border: calc(2 * var(--project-title-margin)) solid transparent;
         position: fixed;
@@ -107,7 +107,7 @@
     #scroll-snap-container {
         overflow-y: scroll;
         overflow-x: visible;
-        height: 100svh;
+        height: 100vh;
         scroll-snap-type: y mandatory;
         margin: auto;
         scrollbar-width: none;
@@ -207,10 +207,10 @@
         gap: var(--margin);
         padding-left: var(--margin);
         z-index: 500;
-        top: 61.8svh;
+        top: 61.8vh;
         margin-top: calc(var(--margin) * 3);
         margin-left: var(--margin);
-        padding-left: min(calc(0.5 * (100vw - (100svh * 1.618))));
+        padding-left: min(calc(0.5 * (100vw - (100vh * 1.618))));
         pointer-events: none;
         color: var(--green);
         opacity: .8;
@@ -303,9 +303,9 @@
     .section-title {
         position: fixed;
         height: auto;
-        bottom: 38.2svh;
+        bottom: 38.2vh;
         pointer-events: none;
-        width: min(calc((100svh * 1.618 * .382)), 38.2vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
+        width: min(calc((100vh * 1.618 * .382)), 38.2vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
     }
 
     .section-title p {
@@ -314,13 +314,13 @@
     }
 
     section {
-        height: 100svh;
+        height: 100vh;
         width: inherit;
         position: relative;
         scroll-snap-align: start;
         overflow-y: hidden;
         overflow-x: visible;
-        width: min(100vw, calc(100svh * 1.618));
+        width: min(100vw, calc(100vh * 1.618));
         margin: auto;
     }
 
@@ -333,8 +333,8 @@
 
     project-container {
         background: var(--gray);
-        width: min(calc((100svh * 1.618 * .618)), 61.8vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
-        height: calc(100svh + 100px);
+        width: min(calc((100vh * 1.618 * .618)), 61.8vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
+        height: calc(100vh + 100px);
         overflow-x: scroll;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
@@ -342,10 +342,10 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         display: grid;
-        grid-template-columns: repeat(5, min(calc((100svh * 1.618 * .618)), 61.8vw));
+        grid-template-columns: repeat(5, min(calc((100vh * 1.618 * .618)), 61.8vw));
         position: fixed;
         top: -50px;
-        margin-left: min(calc((100svh * 1.618 * .382)), 38.2vw);
+        margin-left: min(calc((100vh * 1.618 * .382)), 38.2vw);
         transition: transform .5s ease-out;
     }
 
@@ -366,8 +366,8 @@
 
     project {
         scroll-snap-align: start;
-        width: min(61.8vw, calc(100svh * 1.618 * .618));
-        height: calc(100svh + 50px);
+        width: min(61.8vw, calc(100vh * 1.618 * .618));
+        height: calc(100vh + 50px);
         overflow-y: scroll !important;
         overflow-x: hidden;
         position: relative;
@@ -386,7 +386,7 @@
     }
 
     project img {
-        max-height: calc(100svh - 4 * var(--project-title-margin));
+        max-height: calc(100vh - 4 * var(--project-title-margin));
         width: auto !important;
         height: auto !important;
         max-width: calc(61.8% + 8 * var(--project-title-margin));
@@ -395,7 +395,7 @@
     project .website-container {
         overflow: hidden;
         background: white;
-        height: calc(61.8svh);
+        height: calc(61.8vh);
     }
 
     project iframe {
@@ -409,7 +409,7 @@
     }
 
     .project-hero {
-        height: calc(61.8svh + 50px);
+        height: calc(61.8vh + 50px);
         width: 100%;
         overflow: hidden;
         display: flex;
@@ -420,10 +420,10 @@
     }
 
     .project-hero img {
-        height: calc(61.8svh + 50px) !important;
+        height: calc(61.8vh + 50px) !important;
         object-fit: cover;
-        width: min(61.8vw, calc(100svh * 1.618 * .618)) !important;
-        max-width: min(61.8vw, calc(100svh * 1.618 * .618)) !important;
+        width: min(61.8vw, calc(100vh * 1.618 * .618)) !important;
+        max-width: min(61.8vw, calc(100vh * 1.618 * .618)) !important;
         margin-left: 0;
         object-position: center center;
         filter: contrast(1) grayscale(1) url(#duochrome);
@@ -557,8 +557,8 @@
     #fingerprint::after {
         content: '';
         position: absolute;
-        width: min(calc(100svh * 1.618 * .382), 38.2vw);
-        height: 300svh;
+        width: min(calc(100vh * 1.618 * .382), 38.2vw);
+        height: 300vh;
         background: url(assets/general/sine.svg);
         background-repeat: repeat;
         z-index: -1;
@@ -569,11 +569,11 @@
     #fingerprint {
         animation: wave-container 10s infinite linear;
         animation-play-state: var(--animation-play-state);
-        width: min(calc(100svh * 1.618 * .382), 38.2vw);
+        width: min(calc(100vh * 1.618 * .382), 38.2vw);
         top: 0;
         left: 0;
-        border-left: min(calc(0.5 * (100vw - (100svh * 1.618)))) solid white;
-        height: 300svh;
+        border-left: min(calc(0.5 * (100vw - (100vh * 1.618)))) solid white;
+        height: 300vh;
         position: fixed;
         pointer-events: none;
         z-index: -10;
@@ -598,14 +598,14 @@
 
         #image-zoom {
             width: calc(100vw - 2 * var(--project-title-margin));
-            height: calc(100svh - 2 * var(--project-title-margin));
+            height: calc(100vh - 2 * var(--project-title-margin));
             outline: calc(1 * var(--project-title-margin)) solid #edf1f1cc;
             border: calc(1 * var(--project-title-margin)) solid transparent;
         }
 
         project-container {
             width: calc(100vw - var(--mobile-menu-width));
-            height: calc(100svh + 100px);
+            height: calc(100vh + 100px);
             right: 0;
             grid-template-columns: repeat(10, calc(100vw - var(--mobile-menu-width)));
         }
@@ -616,7 +616,7 @@
 
         project {
             width: calc(100vw - var(--mobile-menu-width));
-            height: calc(100svh - var(--mobile-menu-width) + 50px);
+            height: calc(100vh - var(--mobile-menu-width) + 50px);
         }
 
         project img, project video {
@@ -632,7 +632,7 @@
         .project-hero img {
             width: calc(100vw - var(--mobile-menu-width)) !important;
             max-width: calc(100vw - var(--mobile-menu-width)) !important;
-            height: 80svh;
+            height: 80vh;
             margin-top: 0;
         }
 
@@ -757,7 +757,7 @@
             flex-direction: row;
             z-index: 500;
             width: 100vw;
-            height: 100svh;
+            height: 100vh;
             padding-left: calc(.5 * var(--margin));
             padding-top: calc(.5 * var(--margin));
             transform: translateX(-200vw);
@@ -770,7 +770,7 @@
         mobile-nav::before {
             content: '';
             width: 100vw;
-            height: 100svh;
+            height: 100vh;
             background: var(--orange);
             position: fixed;
             padding-left: inherit;
@@ -794,14 +794,14 @@
         }
 
         mobile-nav a {
-            transform: translateY(-100svh);
+            transform: translateY(-100vh);
             transition: transform 0.25s cubic-bezier(.1,.79,.31,.95) ;
             --delay: .05s;
             color: white;
         }
 
         @keyframes mobile-nav-anim {
-            from {transform: translateY(-100svh)}
+            from {transform: translateY(-100vh)}
             to {transform: translateY(0)}
         }
 
@@ -896,7 +896,7 @@
             display: flex;
             visibility: visible;
             width: 100vw;
-            height: 100svh;
+            height: 100vh;
             background: var(--orange);
         }
 
@@ -1016,7 +1016,7 @@
             </div>
         </mobile-nav>
 
-        <section id="about" style="background: var(--orange); padding-left: calc(0.5 * (100vw - (100svh * 1.618))); padding-right: calc(0.5 * (100vw - (100svh * 1.618)));">
+        <section id="about" style="background: var(--orange); padding-left: calc(0.5 * (100vw - (100vh * 1.618))); padding-right: calc(0.5 * (100vw - (100vh * 1.618)));">
             <div class="section-title-clip">
 
                 <div class="menu-button" style="background: white;">
@@ -1594,7 +1594,7 @@
             mobileNav.classList.add('slide-onto-screen');
             mobileNav.style.transition = 'clip-path 0.25s ease-out';
             mobileNav.style.transform = 'translateX(0)';
-            mobileNav.style.clipPath = 'polygon(0 0, 100vw 0, 100vw 100svh, 0 100svh)';
+            mobileNav.style.clipPath = 'polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh)';
         }
 
         function menuHide() {
