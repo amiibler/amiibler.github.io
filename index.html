@@ -28,7 +28,7 @@
     
     html {
         scroll-behavior: smooth;
-        height: 100vh;
+        height: 100svh;
         overflow: hidden;
     }
     
@@ -36,7 +36,7 @@
         margin: 0 auto;
         padding: 0;
         width: 100vw;
-        height: 100vh;
+        height: 100svh;
         overflow: hidden;
         font-family: 'Inter', 'Helvetica', 'Helvetica Neue', sans-serif;
         color: var(--green);
@@ -53,7 +53,7 @@
     #loading {
         position: fixed;
         z-index: 501;
-        height: 100vh;
+        height: 100svh;
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -104,7 +104,7 @@
 
     #image-zoom {
         width: calc(100vw - 4 * var(--project-title-margin));
-        height: calc(100vh - 4 * var(--project-title-margin));
+        height: calc(100svh - 4 * var(--project-title-margin));
         outline: calc(2 * var(--project-title-margin)) solid #edf1f1cc;
         border: calc(2 * var(--project-title-margin)) solid transparent;
         position: fixed;
@@ -119,7 +119,7 @@
     #scroll-snap-container {
         overflow-y: scroll;
         overflow-x: visible;
-        height: 100vh;
+        height: 100svh;
         scroll-snap-type: y mandatory;
         margin: auto;
         scrollbar-width: none;
@@ -180,7 +180,7 @@
         margin-left: var(--margin);
         margin-bottom: calc(var(--margin) * 3);
         pointer-events: none;
-        width: min(calc(100vw - 2 * var(--margin)), calc(100vh * 1.618 * .8 - 2 * var(--margin)));
+        width: min(calc(100vw - 2 * var(--margin)), calc(100svh * 1.618 * .8 - 2 * var(--margin)));
         aspect-ratio: 100 / 18.28479;
     }
 
@@ -227,10 +227,10 @@
         gap: var(--margin);
         padding-left: var(--margin);
         z-index: 500;
-        top: 61.8vh;
+        top: 61.8svh;
         margin-top: calc(var(--margin) * 3);
         margin-left: var(--margin);
-        padding-left: min(calc(0.5 * (100vw - (100vh * 1.618))));
+        padding-left: min(calc(0.5 * (100vw - (100svh * 1.618))));
         pointer-events: none;
         color: var(--green);
         opacity: .8;
@@ -323,9 +323,9 @@
     .section-title {
         position: fixed;
         height: auto;
-        bottom: 38.2vh;
+        bottom: 38.2svh;
         pointer-events: none;
-        width: min(calc((100vh * 1.618 * .382)), 38.2vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
+        width: min(calc((100svh * 1.618 * .382)), 38.2vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
     }
 
     .section-title p {
@@ -334,13 +334,13 @@
     }
 
     section {
-        height: 100vh;
+        height: 100svh;
         width: inherit;
         position: relative;
         scroll-snap-align: start;
         overflow-y: hidden;
         overflow-x: visible;
-        width: min(100vw, calc(100vh * 1.618));
+        width: min(100vw, calc(100svh * 1.618));
         margin: auto;
     }
 
@@ -353,8 +353,8 @@
 
     project-container {
         background: var(--gray);
-        width: min(calc((100vh * 1.618 * .618)), 61.8vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
-        height: calc(100vh + 100px);
+        width: min(calc((100svh * 1.618 * .618)), 61.8vw); /*This calc() ensures that the section adheres to the golden ratio even when the screen is clamped for ultrawide monitors*/
+        height: calc(100svh + 100px);
         overflow-x: scroll;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
@@ -362,10 +362,10 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         display: grid;
-        grid-template-columns: repeat(5, min(calc((100vh * 1.618 * .618)), 61.8vw));
+        grid-template-columns: repeat(5, min(calc((100svh * 1.618 * .618)), 61.8vw));
         position: fixed;
         top: -50px;
-        margin-left: min(calc((100vh * 1.618 * .382)), 38.2vw);
+        margin-left: min(calc((100svh * 1.618 * .382)), 38.2vw);
         transition: transform .5s ease-out;
     }
 
@@ -386,8 +386,8 @@
 
     project {
         scroll-snap-align: start;
-        width: min(61.8vw, calc(100vh * 1.618 * .618));
-        height: calc(100vh + 50px);
+        width: min(61.8vw, calc(100svh * 1.618 * .618));
+        height: calc(100svh + 50px);
         overflow-y: scroll !important;
         overflow-x: hidden;
         position: relative;
@@ -406,7 +406,7 @@
     }
 
     project img {
-        max-height: calc(100vh - 4 * var(--project-title-margin));
+        max-height: calc(100svh - 4 * var(--project-title-margin));
         width: auto !important;
         height: auto !important;
         max-width: calc(61.8% + 8 * var(--project-title-margin));
@@ -415,7 +415,7 @@
     project .website-container {
         overflow: hidden;
         background: white;
-        height: calc(61.8vh);
+        height: calc(61.8svh);
     }
 
     project iframe {
@@ -429,7 +429,7 @@
     }
 
     .project-hero {
-        height: calc(61.8vh + 50px);
+        height: calc(61.8svh + 50px);
         width: 100%;
         overflow: hidden;
         display: flex;
@@ -440,10 +440,10 @@
     }
 
     .project-hero img {
-        height: calc(61.8vh + 50px) !important;
+        height: calc(61.8svh + 50px) !important;
         object-fit: cover;
-        width: min(61.8vw, calc(100vh * 1.618 * .618)) !important;
-        max-width: min(61.8vw, calc(100vh * 1.618 * .618)) !important;
+        width: min(61.8vw, calc(100svh * 1.618 * .618)) !important;
+        max-width: min(61.8vw, calc(100svh * 1.618 * .618)) !important;
         margin-left: 0;
         object-position: center center;
         filter: contrast(1) grayscale(1) url(#duochrome);
@@ -577,8 +577,8 @@
     #fingerprint::after {
         content: '';
         position: absolute;
-        width: min(calc(100vh * 1.618 * .382), 38.2vw);
-        height: 300vh;
+        width: min(calc(100svh * 1.618 * .382), 38.2vw);
+        height: 300svh;
         background: url(assets/general/sine.svg);
         background-repeat: repeat;
         z-index: -1;
@@ -589,11 +589,11 @@
     #fingerprint {
         animation: wave-container 10s infinite linear;
         animation-play-state: var(--animation-play-state);
-        width: min(calc(100vh * 1.618 * .382), 38.2vw);
+        width: min(calc(100svh * 1.618 * .382), 38.2vw);
         top: 0;
         left: 0;
-        border-left: min(calc(0.5 * (100vw - (100vh * 1.618)))) solid white;
-        height: 300vh;
+        border-left: min(calc(0.5 * (100vw - (100svh * 1.618)))) solid white;
+        height: 300svh;
         position: fixed;
         pointer-events: none;
         z-index: -100;
@@ -618,14 +618,14 @@
 
         #image-zoom {
             width: calc(100vw - 2 * var(--project-title-margin));
-            height: calc(100vh - 2 * var(--project-title-margin));
+            height: calc(100svh - 2 * var(--project-title-margin));
             outline: calc(1 * var(--project-title-margin)) solid #edf1f1cc;
             border: calc(1 * var(--project-title-margin)) solid transparent;
         }
 
         project-container {
             width: calc(100vw - var(--mobile-menu-width));
-            height: calc(100vh + 100px);
+            height: calc(100svh + 100px);
             right: 0;
             grid-template-columns: repeat(10, calc(100vw - var(--mobile-menu-width)));
         }
@@ -636,7 +636,7 @@
 
         project {
             width: calc(100vw - var(--mobile-menu-width));
-            height: calc(100vh - var(--mobile-menu-width) + 50px);
+            height: calc(100svh - var(--mobile-menu-width) + 50px);
         }
 
         project img, project video {
@@ -652,7 +652,7 @@
         .project-hero img {
             width: calc(100vw - var(--mobile-menu-width)) !important;
             max-width: calc(100vw - var(--mobile-menu-width)) !important;
-            height: 80vh;
+            height: 80svh;
             margin-top: 0;
         }
 
@@ -785,7 +785,7 @@
             flex-direction: row;
             z-index: 500;
             width: 100vw;
-            height: 100vh;
+            height: 100svh;
             padding-left: calc(.5 * var(--margin));
             padding-top: calc(.5 * var(--margin));
             transform: translateX(-200vw);
@@ -798,7 +798,7 @@
         mobile-nav::before {
             content: '';
             width: 100vw;
-            height: 100vh;
+            height: 100svh;
             background: var(--orange);
             position: fixed;
             padding-left: inherit;
@@ -822,14 +822,14 @@
         }
 
         mobile-nav a {
-            transform: translateY(-100vh);
+            transform: translateY(-100svh);
             transition: transform 0.25s cubic-bezier(.1,.79,.31,.95) ;
             --delay: .05s;
             color: white;
         }
 
         @keyframes mobile-nav-anim {
-            from {transform: translateY(-100vh)}
+            from {transform: translateY(-100svh)}
             to {transform: translateY(0)}
         }
 
@@ -924,7 +924,7 @@
             display: flex;
             visibility: visible;
             width: 100vw;
-            height: 100vh;
+            height: 100svh;
             background: var(--orange);
         }
 
@@ -940,7 +940,7 @@
         }
 
         #device-size-warning h2{
-            font-size: 9.48vh;
+            font-size: 9.48svh;
             color: white;
             min-width: var(--mobile-menu-width);
             align-content: center;
@@ -997,6 +997,8 @@
         </div>
     </div>-->
 
+    <div id="fingerprint"></div>
+
     <div id="loading"><p>Loading...</p></div>
 
     <div id="image-zoom"></div>
@@ -1044,7 +1046,7 @@
             </div>
         </mobile-nav>
 
-        <section id="about" style="background: var(--orange); padding-left: calc(0.5 * (100vw - (100vh * 1.618))); padding-right: calc(0.5 * (100vw - (100vh * 1.618)));">
+        <section id="about" style="background: var(--orange); padding-left: calc(0.5 * (100vw - (100svh * 1.618))); padding-right: calc(0.5 * (100vw - (100svh * 1.618)));">
             <div class="section-title-clip">
 
                 <div class="menu-button" style="background: white;">
@@ -1086,7 +1088,6 @@
         </section>
 
         <section id="id">
-            <div id="fingerprint"></div>
             <div class="section-title-clip">
 
                 <div class="menu-button">
@@ -1254,7 +1255,7 @@
                         <p>As part of a marketing revitalization initiative, I designed posters for vrCAVE’s VR escape room catalogue for use in the company’s over 250 global arcade partners.</p>
                         <p>Every poster is carefully assembled to communicate the experience offered its respective escape room; artistic renditions of in-game content are presented within varied art styles meant to emulate the look, feel, and process of posters and covers of media general audiences would understand and connect with. Additionally, each poster makes use of unique logos that reflect the tone and emulated time period of each game.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-ai.webp">
-                        <p><i>Alien Infection</i> takes heavy thematic and visual inspiration from Ridley Scott’s 1979 film Alien and its otherworldly H.R. Giger creature and environmental design. Naturally, the poster follows this inspiration by emphasizing pools of black space to hint at the alien’s form without revealing it completely. The textured, pulp-y nature of print technology appropriate for the era is emulated here too with deliberate use of process halftone gradients, emulated print distortions, and a monochromatic colour palette to communicate the isolated horror offered by the escape room. The package is wrapped with the tagline ‘in horrifying sight and sound,’ which was inspired by the evolving VHS and Laserdisc formats’ advertised quality and wonderment.</p>
+                        <p><i>Alien Infection</i> takes heavy thematic and visual inspiration from Ridley Scott’s 1979 film Alien and its otherworldly H.R. Giger creature and environmental design. Naturally, the poster follows this inspiration by emphasizing pools of black space to hint at the alien’s form without revealing it completely. The textured, pulp-y nature of print technology appropriate for the era is emulated here too with deliberate use of process halftone gradients, emulated print distortions, and a monochromatic colour palette to communicate the isolated horror offered by the escape room. The package is wrapped with the tagline ‘in horrifying sight and sound,’ which was inspired by the evolving svhS and Laserdisc formats’ advertised quality and wonderment.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-nt.webp">
                         <p><i>Ninja Trials</i> is set in ancient Japan, and as such the poster emulates the process and practice of woodblock printing and brush ink drawing. The distorted style and proportions of figures from these ancient works is emulated here too, serving to deliver an intense form of motion and excitement in the two ninja figures, as well as a threatening, taunting stare by the central Oni mask, which ties into events within the latter quarter of the game.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-rt.webp">
@@ -1264,7 +1265,7 @@
                         <img loading=lazy src="assets/vcd/vrcave-posters-moe.webp">
                         <p><i>Manor of Escape</i> is a spooky array of encounters set within a sci-fi, Frankenstein-style mansion. The poster here is inspired by classical monster books and movie posters, taking the titular manor and distorting it to make it tower over the perspective of the viewer, heightening the sense of unease and horror. Chromatically, the poster is here too informed by the processes that resulted in the classic, pulp-y style of mid-twentieth century printed media and advertising; the tri-tone palette layers blocky shapes together to emulate the look of silkscreen prints, along with added texture and intentionally-placed imperfections. The hand-drawn blackletter calligraphy here too elevates the spooky-ness, and intentionally calls to its association with horror.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-ttp.webp">
-                        <p><i>Time Travel Paradox</i> takes players from the Jurassic period to the post-apocalyptic future, with action and puzzle scenarios designed specifically for each period. The poster features the time machine at its centre, along with screenshots from each level in the game. <i>Back to the Future</i> was an obvious point of inspiration, so here the poster matches the look and feel of a VHS tape cover with the use of halftone or dot-matrix colour gradients, matching the colouration and texture of period-appropriate media.</p>
+                        <p><i>Time Travel Paradox</i> takes players from the Jurassic period to the post-apocalyptic future, with action and puzzle scenarios designed specifically for each period. The poster features the time machine at its centre, along with screenshots from each level in the game. <i>Back to the Future</i> was an obvious point of inspiration, so here the poster matches the look and feel of a svhS tape cover with the use of halftone or dot-matrix colour gradients, matching the colouration and texture of period-appropriate media.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-dt.webp">
                         <p><i>Dragon Tower</i>  takes place in a medieval fantasy village under attack from a fearsome dragon (or two!). The poster features a shiny hand-rendered blackletter logo and a hand-rendered dragon to match, emulating the look and feel of classic fantasy media like <i>Dungeons and Dragons</i> or <i>Dragon’s Lair</i>, with a hint of <i>Jurassic Park</i> to suggest the dragon’s scale and power.</p>
                         <img loading=lazy src="assets/vcd/vrcave-posters-doo.webp">
@@ -1634,7 +1635,7 @@
             mobileNav.classList.add('slide-onto-screen');
             mobileNav.style.transition = 'clip-path 0.25s ease-out';
             mobileNav.style.transform = 'translateX(0)';
-            mobileNav.style.clipPath = 'polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh)';
+            mobileNav.style.clipPath = 'polygon(0 0, 100vw 0, 100vw 100svh, 0 100svh)';
         }
 
         function menuHide() {
