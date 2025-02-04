@@ -75,18 +75,30 @@
         width: 200px;
         height: 200px;
         position: absolute;
-        border: 5px solid transparent;
+        border: 3px solid transparent;
         border-radius: 50%;
-        background: conic-gradient(var(--orange), white 80%) border-box; /*3*/
+        background: conic-gradient(white 20%, var(--green)) border-box; /*3*/
         mask: /*4*/
         linear-gradient(#000 0 0) padding-box, 
         linear-gradient(#000 0 0);
         mask-composite: exclude; /*5*/
-        animation: loading 10s linear infinite;
+        animation: loading 1s linear infinite;
+    }
+
+    #loading::before {
+        content: '';
+        background: url(assets/general/sine.svg);
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-size: 40em;
+        opacity: .1;
+        border-radius: 50%;
+        animation: wave linear infinite 10s;
     }
 
     @keyframes loading {
-        from {transform: rotate(3600deg);}
+        from {transform: rotate(0deg);}
         to {transform: rotate(360deg);}
     }
 
