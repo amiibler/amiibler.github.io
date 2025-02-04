@@ -350,11 +350,11 @@
         transition: transform .5s ease-out;
     }
 
-    /*.scrolling {
+    .scrolling {
         transform: translateY(calc(var(--margin) * var(--scroll-offset)));
         transition: transform .5s ease-out;
         transform-origin: center;
-    }*/
+    }
 
     .visible .scrolling {
         transform: translateY(0);
@@ -1554,8 +1554,8 @@
                 el.classList.add('scrolling');
             });
 
-            docRoot.style.setProperty('--animation-play-state', 'running');
-            docRoot.style.setProperty('--scroll-opacity', '.25');
+            /*docRoot.style.setProperty('--animation-play-state', 'running');
+            docRoot.style.setProperty('--scroll-opacity', '.25');*/
 
             var currentScrollPos = scrollContainer.scrollTop;
 
