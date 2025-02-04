@@ -1520,6 +1520,26 @@
         const nav = document.querySelector('nav');
         var docRoot = document.querySelector(':root');
 
+
+        // Function to check if the user is on an Apple device
+        function isAppleDevice() {
+            return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+        }
+
+        // Apply the transformation if it's an Apple device
+        /*if (isAppleDevice()) {
+            const elements = document.querySelectorAll('.section-title-clip');
+            elements.forEach(element => {
+                element.style.transform = 'translate3D(0,0,0)';
+            });
+
+            console.log('Apple!');
+        }
+        else {
+            console.log('Not Apple!');
+        }*/
+
+
         var oldScrollPos = 0;
 
         function checkNavColor () {
@@ -1533,40 +1553,43 @@
             }
         };
         
-        scrollContainer.addEventListener("scroll", event => {
-            projectContainers.forEach((el) => {
-                el.classList.add('scrolling');
+        if (!isAppleDevice()) {
+            scrollContainer.addEventListener("scroll", event => {
+
+                projectContainers.forEach((el) => {
+                    el.classList.add('scrolling');
+                });
+
+                docRoot.style.setProperty('--animation-play-state', 'running');
+                docRoot.style.setProperty('--scroll-opacity', '.25');
+
+                var currentScrollPos = scrollContainer.scrollTop;
+
+                if (oldScrollPos > currentScrollPos) {
+                    docRoot.style.setProperty('--scroll-offset', '1');
+                }
+                else {
+                    docRoot.style.setProperty('--scroll-offset', '-1');
+                }
+
+                if (scrollContainer.scrollTop == 0) {
+                    nav.style.color = 'white';
+                    nav.classList.add('white');
+                }
+                else {
+                    nav.style.color = 'var(--green)';
+                    nav.classList.remove('white');
+                }
+
+                oldScrollPos = currentScrollPos;
+
+                setTimeout(function() {
+                    resetScrolling();
+                    resetProjectScrollPositions();
+                }, 500);
+
             });
-
-            docRoot.style.setProperty('--animation-play-state', 'running');
-            docRoot.style.setProperty('--scroll-opacity', '.25');
-
-            var currentScrollPos = scrollContainer.scrollTop;
-
-            if (oldScrollPos > currentScrollPos) {
-                docRoot.style.setProperty('--scroll-offset', '1');
-            }
-            else {
-                docRoot.style.setProperty('--scroll-offset', '-1');
-            }
-
-            if (scrollContainer.scrollTop == 0) {
-                nav.style.color = 'white';
-                nav.classList.add('white');
-            }
-            else {
-                nav.style.color = 'var(--green)';
-                nav.classList.remove('white');
-            }
-
-            oldScrollPos = currentScrollPos;
-
-            setTimeout(function() {
-                resetScrolling();
-                resetProjectScrollPositions();
-            }, 500);
-
-        });
+        };    
 
         function resetScrolling() {
             projectContainers.forEach((el) => {
@@ -1631,24 +1654,6 @@
         };
         
         window.onresize = textResize;
-
-        // Function to check if the user is on an Apple device
-        function isAppleDevice() {
-            return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
-        }
-
-        // Apply the transformation if it's an Apple device
-        if (isAppleDevice()) {
-            const elements = document.querySelectorAll('.section-title-clip');
-            elements.forEach(element => {
-                element.style.transform = 'translate3D(0,0,0)';
-            });
-
-            console.log('Apple!');
-        }
-        else {
-            console.log('Not Apple!');
-        }
 
     </script>
 
