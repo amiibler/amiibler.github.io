@@ -161,7 +161,7 @@
 
     #about .nametag {
         position: relative;
-        width: max-content;
+        /*width: calc(100vw - 2 * var(--margin));*/
         display: flex;
         flex-direction: column;
         align-content: center;
@@ -169,22 +169,25 @@
         margin-left: var(--margin);
         margin-bottom: calc(var(--margin) * 3);
         pointer-events: none;
+        width: min(calc(100vw - 2 * var(--margin)), calc(100vh * 1.618 * .8 - 2 * var(--margin)));
     }
 
-    #about .nametag::after {
+    /*#about .nametag::after {
         content: '02.05.000';
         position: absolute;
-        margin-top: calc(-1.618 * var(--margin));
-        font-size: .6em;
+        margin-top: calc(-4 * var(--margin));
+        font-size: min(.6em, 1.7vw);
         letter-spacing: .05em;
         margin-left: .05em;
-        opacity: .6;
+        opacity: .4;
         color: white;
         font-weight: 500;
-    }
+        writing-mode: vertical-lr;
+    }*/
 
     #about .nametag svg {
-        height: min(300px, 14vw);
+        width: 100%;
+        height: 100%;
         position: relative;
         width: max-content;
     }
@@ -639,6 +642,14 @@
 
         #about p {
             margin-right: var(--margin);
+        }
+
+        #about .nametag {
+            margin-bottom: calc(var(--margin) * 1.5);
+        }
+
+        #about .nametag::after {
+            margin-top: calc(-3 * var(--margin));
         }
 
         #fingerprint, #fingerprint::after {
@@ -1525,6 +1536,14 @@
             return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
         }
 
+        if(isAppleDevice()) {
+            const sectionClips = document.querySelectorAll('.section-title-clip');
+
+            sectionClips.forEach((el) => {
+                el.style.transform = 'translate3d(0,0,0)';
+            });
+        };
+
         var oldScrollPos = 0;
 
         function checkNavColor() {
@@ -1557,7 +1576,7 @@
                     docRoot.style.setProperty('--scroll-offset', '-1');
                 }
 
-            };
+            }
 
             checkNavColor();
 
