@@ -330,7 +330,6 @@
         width: inherit;
         height: inherit;
         clip: rect(0, auto, auto, 0); /*PROBLEM on iOS*/
-        -webkit-mask-clip: rect(0, auto, auto, 0);
     }
 
     project-container {
@@ -1633,6 +1632,23 @@
         
         window.onresize = textResize;
 
+        // Function to check if the user is on an Apple device
+        function isAppleDevice() {
+            return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+        }
+
+        // Apply the transformation if it's an Apple device
+        if (isAppleDevice()) {
+            const elements = document.querySelectorAll('.section-title-clip');
+            elements.forEach(element => {
+                element.style.transform = 'translate3D(0,0,0)';
+            });
+
+            console.log('Apple!');
+        }
+        else {
+            console.log('Not Apple!');
+        }
 
     </script>
 
