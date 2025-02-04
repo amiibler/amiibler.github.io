@@ -329,7 +329,8 @@
         position: absolute;
         width: inherit;
         height: inherit;
-        clip: rect(0, auto, auto, 0);
+        clip: rect(0, auto, auto, 0); /*PROBLEM on iOS*/
+        -webkit-mask-clip: rect(0, auto, auto, 0);
     }
 
     project-container {
