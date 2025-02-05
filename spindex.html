@@ -1513,7 +1513,8 @@
             //Disables the fancy scrolling effects to save performance on Apple devices
             sectionClips.forEach((el) => {
                 el.style.transform = 'translate3d(0,0,0)';
-                el.style.webkitTransform = 'translate3d(0, 0, 0);';
+                el.style.webkitTransform = 'translate3d(0, 0, 0)';
+                el.style.clipPath = 'unset';
             });
         };
 
