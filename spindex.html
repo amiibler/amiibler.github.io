@@ -1507,16 +1507,15 @@
             return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
         }
 
-        if(isAppleDevice()) {
+        /*if(isAppleDevice()) {
             const sectionClips = document.querySelectorAll('.section-title-clip');
 
             //Disables the fancy scrolling effects to save performance on Apple devices
             sectionClips.forEach((el) => {
                 el.style.transform = 'translate3d(0,0,0)';
                 el.style.webkitTransform = 'translate3d(0, 0, 0)';
-                el.style.clipPath = 'unset';
             });
-        };
+        };*/
 
         //Declare variable for comparing the current to the previous scroll position
         var oldScrollPos = 0;
