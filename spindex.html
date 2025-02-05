@@ -1535,7 +1535,7 @@
         scrollContainer.addEventListener("scroll", event => {
 
             //If the device isn't an Apple, do the fancy scrolling animation stuff, set CSS variables accordingly
-            if (!isAppleDevice()) {
+            if (isAppleDevice()) {
                 projectContainers.forEach((el) => {
                     el.classList.add('scrolling');
                 });
