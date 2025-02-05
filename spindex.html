@@ -269,6 +269,7 @@
 
     nav a:hover + a, nav a:focus + a, nav a:has(+a:hover), nav a:has(+a:focus){
         font-size: 1.25rem;
+        width: calc(38.2vw - var(--margin));
     }
 
     nav:has(a:hover), nav:has(a:focus) {
@@ -584,6 +585,7 @@
         z-index: -1;
         animation: wave 20s linear infinite;
         background-size: 80em;
+        transition: background-size 5s ease-in-out;
     }
 
     #fingerprint {
@@ -623,8 +625,15 @@
             border: calc(1 * var(--project-title-margin)) solid transparent;
         }
 
-        .section-title-clip {
+        .section-title-clip, .about-clip{
             clip-path: polygon(0 0, var(--mobile-menu-width) 0, var(--mobile-menu-width) calc(100svh - var(--mobile-menu-width)), 100vw calc(100svh - var(--mobile-menu-width)), 100vw 100svh, 0 100svh); /*L shape for mobile*/
+        }
+
+        .about-clip {
+            position: absolute;
+            width: 100vw;
+            height: 100svh;
+            bottom: calc(-1 * var(--margin));
         }
 
         project-container {
@@ -824,7 +833,6 @@
             color: white;
             font-size: min(3em, 10vw);
             width: min(.8em, 8vw);
-            height: 100%;
         }
 
         mobile-nav a {
@@ -832,6 +840,10 @@
             transition: transform 0.25s cubic-bezier(.1,.79,.31,.95) ;
             --delay: .05s;
             color: white;
+        }
+
+        mobile-nav a:hover h2{
+            height: 100%;
         }
 
         @keyframes mobile-nav-anim {
@@ -1012,8 +1024,10 @@
                         </svg>
                     </div>
                 </div>
-                <h2 class="loading-text" data-time="100" data-original="About" style="color: white;"></h2>
-                <p style="margin-left: var(--margin); color: white;">Designer from Edmonton, Alberta, Canada.<br>Studied Design (BDes) at University of Alberta.<br>Graduated 2022 with distinction.<br>Currently Game & Marketing Design at vrCAVE.<br>24 years existence experience.<br>Design for humans, by human.</p>
+                <div class="about-clip">
+                    <h2 class="loading-text" data-time="100" data-original="About" style="color: white;"></h2>
+                </div>
+                <p style="margin-left: var(--margin); color: white;">Designer from Edmonton, Alberta, Canada.<br>Studied Design (BDes) at University of Alberta.<br>Graduated 2022 with distinction.<br>Currently Game & Marketing Design at vrCAVE.<br>25 years existence experience.<br>Design for humans, by human.</p>
             </div>
 
             <div class="section-title-clip">
@@ -1542,9 +1556,6 @@
                     docRoot.style.setProperty('--scroll-offset', '-1');
                 }
 
-            }
-            else {
-                docRoot.style.setProperty('--scroll-opacity', '.25');
             }
 
             checkNavColor();
