@@ -245,12 +245,6 @@
         pointer-events: all;
     }
 
-    .white a:hover, .white a:focus{
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: white;
-        color: transparent;
-    }
-
     a {
         text-decoration: none;
         color: inherit;
@@ -258,27 +252,7 @@
     }
 
     nav a {
-        will-change: font-size;
-    }
-
-    nav a:hover, nav a:focus {
-        font-size: 2em;
-        opacity: 1 !important;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var(--green);
-        color: transparent;
-        letter-spacing: -.08em !important;
-        font-weight: 900 !important;
-        font-stretch: 200% !important;
-    }
-
-    nav a:hover + a, nav a:focus + a, nav a:has(+a:hover), nav a:has(+a:focus){
-        font-size: 1.25rem;
-        width: calc(38.2vw - var(--margin));
-    }
-
-    nav:has(a:hover), nav:has(a:focus) {
-        opacity: 1;
+        will-change: auto;
     }
 
     .nav-chunk {
@@ -293,14 +267,6 @@
         text-transform: none;
         letter-spacing: normal;
         font-size: .9em !important;
-    }
-
-    .nav-chunk:nth-child(3) a:hover, .nav-chunk:nth-child(3) a:focus {
-        -webkit-text-stroke-width: 0 !important;
-        color: inherit;
-        letter-spacing: normal !important;
-        font-weight: 220 !important;
-        font-stretch: 105% !important;
     }
 
     .nav-chunk span {
@@ -528,6 +494,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         background: var(--green);
+        will-change: auto;
     }
 
     menu a div {
@@ -536,16 +503,6 @@
         background-position: center center;
         padding-inline: inherit;
         flex-grow: 0;
-    }
-
-    menu a:hover div, menu a:focus div{
-        padding-inline: 80px;
-        filter: none;
-        opacity: 1 !important;
-    }
-
-    menu:has(a:hover) a div, menu:has(a:focus) a div{
-        opacity: 0.25;
     }
 
     menu a hanger {
@@ -616,6 +573,52 @@
     @keyframes wave-container {
         from{transform: translateY(0)}
         to{transform: translateY(-80em);}
+    }
+
+    @media (hover:hover) {
+        .white a:hover, .white a:focus{
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            color: transparent;
+        }
+
+        nav a:hover, nav a:focus {
+            font-size: 2em;
+            opacity: 1 !important;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: var(--green);
+            color: transparent;
+            letter-spacing: -.08em !important;
+            font-weight: 900 !important;
+            font-stretch: 200% !important;
+        }
+
+        nav a:hover + a, nav a:focus + a, nav a:has(+a:hover), nav a:has(+a:focus){
+            font-size: 1.25rem;
+            width: calc(38.2vw - var(--margin));
+        }
+
+        nav:has(a:hover), nav:has(a:focus) {
+            opacity: 1;
+        }
+
+        .nav-chunk:nth-child(3) a:hover, .nav-chunk:nth-child(3) a:focus {
+            -webkit-text-stroke-width: 0 !important;
+            color: inherit;
+            letter-spacing: normal !important;
+            font-weight: 220 !important;
+            font-stretch: 105% !important;
+        }
+
+        menu a:hover div, menu a:focus div{
+            padding-inline: 80px;
+            filter: none;
+            opacity: 1 !important;
+        }
+
+        menu:has(a:hover) a div, menu:has(a:focus) a div{
+            opacity: 0.25;
+        }
     }
 
     @media screen and (max-width: 1000px){
