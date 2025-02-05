@@ -1507,16 +1507,6 @@
             return /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
         }
 
-        /*if(isAppleDevice()) {
-            const sectionClips = document.querySelectorAll('.section-title-clip');
-
-            //Disables the fancy scrolling effects to save performance on Apple devices
-            sectionClips.forEach((el) => {
-                el.style.transform = 'translate3d(0,0,0)';
-                el.style.webkitTransform = 'translate3d(0, 0, 0)';
-            });
-        };*/
-
         //Declare variable for comparing the current to the previous scroll position
         var oldScrollPos = 0;
 
@@ -1535,7 +1525,7 @@
         scrollContainer.addEventListener("scroll", event => {
 
             //If the device isn't an Apple, do the fancy scrolling animation stuff, set CSS variables accordingly
-            if (isAppleDevice()) {
+            if (!isAppleDevice()) {
                 projectContainers.forEach((el) => {
                     el.classList.add('scrolling');
                 });
@@ -1552,6 +1542,9 @@
                     docRoot.style.setProperty('--scroll-offset', '-1');
                 }
 
+            }
+            else {
+                docRoot.style.setProperty('--scroll-opacity', '.25');
             }
 
             checkNavColor();
