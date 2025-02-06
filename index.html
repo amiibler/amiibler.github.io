@@ -522,6 +522,7 @@
         animation: wave 20s linear infinite;
         background-size: 80em;
         transition: background-size 5s ease-in-out;
+        will-change: background-position;
     }
 
     #fingerprint {
@@ -537,6 +538,7 @@
         z-index: -100;
         transition: opacity .25s ease-out;
         opacity: var(--scroll-opacity);
+        will-change: transform;
     }
 
     @keyframes wave {
