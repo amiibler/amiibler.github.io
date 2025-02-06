@@ -251,7 +251,7 @@
 
     .section-title h2 {
         font-family: 'Archivo', sans-serif;
-        font-size: min(5.65em, 4.47vw);
+        font-size: min(5.65em, 4.47vw, 8svh);
         font-weight: 1000;
         letter-spacing: -.11em;
         font-stretch: 200%;
@@ -293,7 +293,7 @@
         position: absolute;
         width: inherit;
         height: inherit;
-        clip-path: polygon(0 0, 38.2vw 0, 38.2vw 100svh, 0 100svh);
+        clip-path: polygon(0 0, min(calc(100svh * 1.618 * .382), 38.2vw) 0, min(calc(100svh * 1.618 * .382), 38.2vw) 100svh, 0 100svh);
         will-change: clip-path;
     }
 
@@ -468,7 +468,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         background: var(--green);
-        will-change: auto;
+        will-change: width;
     }
 
     menu a div {
