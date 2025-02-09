@@ -571,7 +571,7 @@
 
         nav a:hover + a, nav a:focus + a, nav a:has(+a:hover), nav a:has(+a:focus){
             font-size: 1.25rem;
-            width: calc(38.2vw - var(--margin));
+            width: max(180px, max-content) !important;
         }
 
         nav:has(a:hover), nav:has(a:focus) {
