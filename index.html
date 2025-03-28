@@ -611,6 +611,7 @@
 
         .section-title-clip, .about-clip{
             clip-path: polygon(0 0, var(--mobile-menu-width) 0, var(--mobile-menu-width) calc(100svh - var(--mobile-menu-width)), 100vw calc(100svh - var(--mobile-menu-width)), 100vw 100svh, 0 100svh); /*L shape for mobile*/
+            pointer-events: none;
         }
 
         .about-clip {
@@ -872,6 +873,7 @@
             aspect-ratio: 1;
             z-index: 1;
             cursor: pointer;
+            pointer-events: all;
         }
 
         .menu-button svg {
