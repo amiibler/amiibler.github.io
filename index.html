@@ -319,7 +319,6 @@
         transform: translateY(calc(var(--margin) * var(--scroll-offset)));
         transition: transform .5s ease-out;
         transform-origin: center;
-        overflow: hidden !important;
     }
 
     .visible .scrolling {
@@ -1491,6 +1490,7 @@
         const nav = document.querySelector('nav');
         const videos = document.querySelectorAll('video');
         var docRoot = document.querySelector(':root');
+        var hasFired = false; //Used to check if the scrolling event listener has fired to avoid buggy scroll issue
 
         // Function to check if the user is on an Apple device
         function isAppleDevice() {
@@ -1514,9 +1514,10 @@
         
         scrollContainer.addEventListener("scroll", event => {
 
-            //If the device isn't an Apple, do the fancy scrolling animation stuff, set CSS variables accordingly
-            if (!isAppleDevice()) {
-                projectContainers.forEach((el) => {
+            if (!hasFired) {
+                //If the device isn't an Apple, do the fancy scrolling animation stuff, set CSS variables accordingly
+                if (!isAppleDevice()) {
+                    projectContainers.forEach((el) => {
                     el.classList.add('scrolling');
                 });
 
@@ -1531,21 +1532,19 @@
                 else {
                     docRoot.style.setProperty('--scroll-offset', '-1');
                 }
-
             }
 
             resetProjectScrollPositions();
-
             checkNavColor();
-
             oldScrollPos = currentScrollPos;
+            hasFired = true;
+            }
+        });
 
-            //Call the functions that reset the fancy scroll animations after 500 milliseconds
-            setTimeout(function() {
-                resetScrolling();
-                muteVideos();
-            }, 1000);
-
+        scrollContainer.addEventListener("scrollend", event => {
+            resetScrolling();
+            muteVideos();
+            hasFired = false;
         });
 
         projectContainers.forEach ((el) => {
@@ -1569,7 +1568,6 @@
                     behavior: "smooth",
                 });
             });
-            console.log("Reset positions!");
         }
 
         function muteVideos () {
