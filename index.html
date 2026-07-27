@@ -319,6 +319,7 @@
         transform: translateY(calc(var(--margin) * var(--scroll-offset)));
         transition: transform .5s ease-out;
         transform-origin: center;
+        overflow: hidden !important;
     }
 
     .visible .scrolling {
@@ -1533,6 +1534,8 @@
 
             }
 
+            resetProjectScrollPositions();
+
             checkNavColor();
 
             oldScrollPos = currentScrollPos;
@@ -1540,9 +1543,8 @@
             //Call the functions that reset the fancy scroll animations after 500 milliseconds
             setTimeout(function() {
                 resetScrolling();
-                resetProjectScrollPositions();
                 muteVideos();
-            }, 500);
+            }, 1000);
 
         });
 
@@ -1562,8 +1564,12 @@
 
         function resetProjectScrollPositions() {
             projects.forEach((el) => {
-                el.scrollTo(0,0);
+                el.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
             });
+            console.log("Reset positions!");
         }
 
         function muteVideos () {
