@@ -303,6 +303,7 @@
         height: calc(100svh + 100px);
         overflow-x: scroll;
         overflow-y: hidden;
+        overscroll-behavior: contain;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         scrollbar-width: none;
@@ -626,6 +627,7 @@
             height: calc(100svh + 100px);
             right: 0;
             grid-template-columns: repeat(10, calc(100vw - var(--mobile-menu-width)));
+            overscroll-behavior: unset;
         }
 
         project-container p {
@@ -1445,12 +1447,16 @@
             });
         }
     
-        function glitchText(element) {
+        async function glitchText(element) {
             const initialWidth = element.getAttribute ('width');
             const time = element.getAttribute('data-time');
             const originalText = element.dataset.original;
             const glitchedText = generateGlitchedText(originalText);
         
+            if (element.dataset.running === "true") return;
+
+            element.dataset.running = "true";
+
             let currentIndex = 0;
             const animationInterval = setInterval(() => {
                 const transitionText = originalText.substring(0, currentIndex + 1);
@@ -1460,6 +1466,7 @@
         
                 if (currentIndex >= originalText.length) {
                 clearInterval(animationInterval);
+                element.dataset.running = "false";
                 }
             }, time);
         }
@@ -1544,6 +1551,7 @@
         scrollContainer.addEventListener("scrollend", event => {
             resetScrolling();
             muteVideos();
+            checkNavColor();
             hasFired = false;
         });
 
